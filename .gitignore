@@ -1,1 +1,3 @@
-/fonts/*
+fonts/*
+!fonts/.gitkeep
+*.css.map
