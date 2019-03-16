@@ -1,0 +1,29 @@
+/*!
+Theme Name: Dreams
+Theme URI: http://www.anaitgames.com
+Author: @kungfunk, @Vlanco
+Author URI: http://www.anaitgames.com
+Description: ♪ So tonight I'm gonna party like it's nineteen ninety-nine ♫
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: dreams
+Tags: anaitgames
+*/
+
+@import "libs/normalize";
+
+@import "variables/colors";
+@import "variables/layout";
+@import "variables/typography";
+
+@import "mixins/font-family";
+@import "mixins/block-title";
+
+@import "site";
+@import "header";
+@import "sidebar";
+@import "footer";
+
+@import "more-link";
+@import "editorial";

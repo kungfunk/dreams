@@ -1,0 +1,9 @@
+%block-title {
+  @extend %font-family-monospace;
+  border-top: 1px solid $color_black;
+  content: '';
+  color: $color_red;
+  display: block;
+  font-weight: $font-weight-bold;
+  padding: 16px 0;
+}

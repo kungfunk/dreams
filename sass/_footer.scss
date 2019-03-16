@@ -1,0 +1,12 @@
+.footer__logo {
+  display: block;
+  width: 190px;
+
+  & .logo__text {
+    fill: $color_black;
+  }
+
+  & .logo__figure {
+    fill: $color_white;
+  }
+}

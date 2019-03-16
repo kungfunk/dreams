@@ -1,0 +1,45 @@
+html, body {
+  @extend %font-family-serif;
+  color: $color_black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend %font-family-sans-serif;
+  margin: 0;
+}
+
+a, a:active, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site__header > * {
+  max-width: $site_max_width;
+}
+
+.site__footer > *,
+.site__entry-list > *,
+.site__more-link > *,
+.site__editorial > * {
+  max-width: $site_mid_width;
+}
+
+.site__header > *,
+.site__footer > *,
+.site__entry-list > *,
+.site__more-link > *,
+.site__editorial > * {
+  margin: 0 auto;
+}
+
+.site__more-link > * {
+  height: 126px;
+}
+
+.site__footer {
+  background-color: $color_red;
+}
+
+.site__more-link {
+  background-color: $color_yellow;
+}

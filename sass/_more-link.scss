@@ -1,0 +1,10 @@
+.more-link {
+  align-items: center;
+  display: flex;
+}
+
+.more-link > a {
+  @extend %font-family-monospace;
+  color: $color_red;
+  font-weight: $font-weight-bold;
+}

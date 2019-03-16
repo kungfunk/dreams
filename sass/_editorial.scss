@@ -1,0 +1,50 @@
+.editorial {
+  padding: 50px 0 130px;
+
+  &:before {
+    @extend %block-title;
+    content: '#editorial';
+  }
+}
+
+.editorial__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editorial__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.editorial__description {
+  width: 80%;
+}
+
+.editorial__book-list {
+  width: 50%;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.editorial__more-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: $color_yellow;
+  height: 74px;
+}
+
+.book {
+  width: 240px;
+  margin-right: 54px;
+}
+
+.book__year {
+  @extend %font-family-monospace;
+  margin: 24px 0 20px;
+}
