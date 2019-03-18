@@ -1,0 +1,36 @@
+.front-page {
+  display:flex;
+  justify-content: space-between;
+}
+
+.front-page__left {
+  flex: 0 0 774px;
+  padding: 170px 0 60px;
+}
+
+.front-page__right {
+  flex: 0 0 346px;
+  padding: 170px 0 60px;
+}
+
+.front-page__block {
+  &:before {
+    @extend %block-title;
+  }
+
+  &--news:before {
+    content: '#noticias';
+  }
+
+  &--podcasts {
+    margin-bottom: 200px;
+
+    &:before {
+      content: '#podcast';
+    }
+  }
+
+  &--reviews:before {
+    content: '#análisis';
+  }
+}

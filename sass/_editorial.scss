@@ -24,11 +24,9 @@
 }
 
 .editorial__book-list {
+  @extend %unstyled-list;
   width: 50%;
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .editorial__more-link {

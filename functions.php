@@ -1,6 +1,8 @@
 <?php
 define('THEME_VERSION', wp_get_theme()->version);
 define('EDITORIAL_SLUG', 'editorial');
+define('PODCAST_SLUG', 'podcast');
+define('REVIEW_SLUG', 'analisis');
 
 // support stuff
 add_theme_support('automatic-feed-links');
@@ -52,11 +54,6 @@ function dream_style() {
 }
 add_action('wp_enqueue_scripts', 'dream_style');
 
-// add book cover size thumbnail
+// add extra thumbnail sizes
 add_image_size('book-cover', 240, 340, true);
-
-// helper methods
-function dreams_the_year() {
-	global $post;
-	echo date('Y', strtotime($post->post_date));
-}
+add_image_size('mini-entry', 345, 270, true);

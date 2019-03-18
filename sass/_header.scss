@@ -7,7 +7,7 @@
 .header__logo {
   align-self: flex-end;
   display: block;
-  width: 190px;
+  flex: 0 0 190px;
 
   & .logo__text {
     fill: $color_black;
@@ -25,12 +25,10 @@
 }
 
 .top-stories__list {
+  @extend %unstyled-list;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 30px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
   width: 880px;
 }
 

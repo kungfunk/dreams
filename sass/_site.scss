@@ -8,31 +8,31 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-a, a:active, a:visited {
+a {
   color: inherit;
   text-decoration: none;
 }
 
-.site__header > * {
+.site__header > .header {
   max-width: $site_max_width;
 }
 
-.site__footer > *,
-.site__entry-list > *,
-.site__more-link > *,
-.site__editorial > * {
+.site__footer > .footer,
+.site__more-link > .more-link,
+.site__editorial > .editorial,
+.site__front-page > .front-page {
   max-width: $site_mid_width;
 }
 
-.site__header > *,
-.site__footer > *,
-.site__entry-list > *,
-.site__more-link > *,
-.site__editorial > * {
+.site__header > .header,
+.site__footer > .footer,
+.site__more-link > .more-link,
+.site__editorial > .editorial,
+.site__front-page > .front-page {
   margin: 0 auto;
 }
 
-.site__more-link > * {
+.site__more-link > .more-link {
   height: 126px;
 }
 

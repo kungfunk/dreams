@@ -1,3 +1,26 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0 70px;
+  color: $color_white;
+}
+
+.footer_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__legal-links {
+  @extend %font-family-monospace;
+  @extend %unstyled-list;
+}
+
+.footer__menu-links {
+  @extend %font-family-sans-serif;
+  @extend %unstyled-list;
+}
+
 .footer__logo {
   display: block;
   width: 190px;
@@ -9,4 +32,10 @@
   & .logo__figure {
     fill: $color_white;
   }
+}
+
+.footer__back-to-top {
+  @extend %font-family-monospace;
+  align-self: flex-end;
+  font-weight: $font-weight-bold;
 }
