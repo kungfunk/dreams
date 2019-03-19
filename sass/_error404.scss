@@ -1,0 +1,37 @@
+.error404 {
+  background-color: $color_pink;
+}
+
+.error404__container {
+  box-sizing: border-box;
+  border-top: 1px solid rgba($color_grey, .4);
+  padding: 20px 80px 0;
+  margin: 0 50px;
+}
+
+.error404__number {
+  @extend %font-family-sans-serif;
+  color: $color_white;
+  font-size: 400px;
+  font-weight: $font-weight-bold;
+}
+
+.error404__title {
+  @extend %font-family-monospace;
+  font-style: italic;
+  font-weight: $font-weight-bold;
+}
+
+.error404__text {
+  color: $color_dark_pink;
+  max-width: 530px;
+}
+
+.error404__link {
+  color: $color_white;
+}
+
+.error404_image {
+  float: right;
+  margin-top: -110px;
+}

@@ -13,7 +13,8 @@ a {
   text-decoration: none;
 }
 
-.site__header > .header {
+.site__header > .header,
+.site__error {
   max-width: $site_max_width;
 }
 
@@ -28,7 +29,8 @@ a {
 .site__footer > .footer,
 .site__more-link > .more-link,
 .site__editorial > .editorial,
-.site__front-page > .front-page {
+.site__front-page > .front-page,
+.site__error {
   margin: 0 auto;
 }
 

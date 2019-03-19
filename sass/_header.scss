@@ -1,7 +1,8 @@
 .header {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 30px 50px;
+  padding: 24px 50px 30px;
 }
 
 .header__logo {
@@ -22,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 22px 0 12px;
 }
 
 .header__icon {
@@ -37,12 +38,16 @@
   fill: $color_black;
 }
 
+.top-stories {
+  margin-right: -200px;
+}
+
 .top-stories__list {
   @extend %unstyled-list;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 30px;
-  width: 880px;
+  width: 1080px;
 }
 
 .top-stories__item {
@@ -61,10 +66,11 @@
 .top-stories__category {
   @extend %font-family-monospace;
   font-style: italic;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .top-stories__link {
+  @extend %font-family-monospace;
   font-weight: $font-weight-bold;
   display: block;
   white-space: nowrap;

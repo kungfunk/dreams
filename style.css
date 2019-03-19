@@ -410,7 +410,7 @@ template {
   font-weight: 700;
   src: local("SpaceMono BoldItalic"), local("SpaceMono-BoldItalic"), url("fonts/SpaceMono-BoldItalic.woff") format("woff");
 }
-.footer__menu-links, h1, h2, h3, h4, h5, h6 {
+.error404__number, .footer__menu-links, h1, h2, h3, h4, h5, h6 {
   font-family: "RMPro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -418,8 +418,9 @@ html, body {
   font-family: "Lora", Georgia, Times, Times New Roman, serif;
 }
 
-.book__year, .mini-entry__subtitle, .mini-entry__more-link, .entry__footer, .entry__subtitle, .entry_comments-count, .more-link > a, .footer__back-to-top, .footer__legal-links, .top-stories__category, .editorial:before, .front-page__block:before {
+.error404__title, .book__year, .mini-entry__subtitle, .mini-entry__more-link, .entry__footer, .entry__subtitle, .entry_comments-count, .more-link > a, .footer__back-to-top, .footer__legal-links, .top-stories__link, .top-stories__category, .editorial:before, .front-page__block:before {
   font-family: "SpaceMono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: -1px;
 }
 
 .editorial:before, .front-page__block:before {
@@ -450,7 +451,8 @@ a {
   text-decoration: none;
 }
 
-.site__header > .header {
+.site__header > .header,
+.site__error {
   max-width: 1440px;
 }
 
@@ -465,7 +467,8 @@ a {
 .site__footer > .footer,
 .site__more-link > .more-link,
 .site__editorial > .editorial,
-.site__front-page > .front-page {
+.site__front-page > .front-page,
+.site__error {
   margin: 0 auto;
 }
 
@@ -482,9 +485,10 @@ a {
 }
 
 .header {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 30px 50px;
+  padding: 24px 50px 30px;
 }
 
 .header__logo {
@@ -505,7 +509,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 22px 0 12px;
 }
 
 .header__icon {
@@ -520,11 +524,15 @@ a {
   fill: #2c2c2c;
 }
 
+.top-stories {
+  margin-right: -200px;
+}
+
 .top-stories__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 30px;
-  width: 880px;
+  width: 1080px;
 }
 
 .top-stories__item {
@@ -541,7 +549,7 @@ a {
 
 .top-stories__category {
   font-style: italic;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .top-stories__link {
@@ -808,6 +816,42 @@ a {
 
 .book__year {
   margin: 24px 0 20px;
+}
+
+.error404 {
+  background-color: #eb7180;
+}
+
+.error404__container {
+  box-sizing: border-box;
+  border-top: 1px solid rgba(155, 155, 155, 0.4);
+  padding: 20px 80px 0;
+  margin: 0 50px;
+}
+
+.error404__number {
+  color: #fff;
+  font-size: 400px;
+  font-weight: 700;
+}
+
+.error404__title {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.error404__text {
+  color: #701828;
+  max-width: 530px;
+}
+
+.error404__link {
+  color: #fff;
+}
+
+.error404_image {
+  float: right;
+  margin-top: -110px;
 }
 
 /*# sourceMappingURL=style.css.map */
