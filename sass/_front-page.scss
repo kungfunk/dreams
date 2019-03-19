@@ -13,12 +13,13 @@
   padding: 170px 0 60px;
 }
 
-.front-page__block {
-  &:before {
-    @extend %block-title;
-  }
+.front-page__category {
+  padding-top: 30px;
+}
 
+.front-page__block {
   &--news:before {
+    @extend %block-title;
     content: '#noticias';
   }
 
@@ -26,11 +27,13 @@
     margin-bottom: 200px;
 
     &:before {
+      @extend %block-title;
       content: '#podcast';
     }
   }
 
   &--reviews:before {
+    @extend %block-title;
     content: '#análisis';
   }
 }

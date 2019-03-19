@@ -418,12 +418,12 @@ html, body {
   font-family: "Lora", Georgia, Times, Times New Roman, serif;
 }
 
-.error404__title, .book__year, .mini-entry__subtitle, .mini-entry__more-link, .entry__footer, .entry__subtitle, .entry_comments-count, .more-link > a, .footer__back-to-top, .footer__legal-links, .top-stories__link, .top-stories__category, .editorial:before, .front-page__block:before {
+.error404__title, .category__subtitle, .book__year, .mini-entry__subtitle, .mini-entry__more-link, .entry__footer, .entry__subtitle, .entry_comments-count, .more-link > a, .footer__back-to-top, .footer__legal-links, .top-stories__link, .top-stories__category, .editorial:before, .front-page__block--reviews:before, .front-page__block--podcasts:before, .front-page__block--news:before {
   font-family: "SpaceMono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   letter-spacing: -1px;
 }
 
-.editorial:before, .front-page__block:before {
+.editorial:before, .front-page__block--reviews:before, .front-page__block--podcasts:before, .front-page__block--news:before {
   border-top: 1px solid #9b9b9b;
   content: "";
   color: #e44445;
@@ -637,6 +637,10 @@ a {
   padding: 170px 0 60px;
 }
 
+.front-page__category {
+  padding-top: 30px;
+}
+
 .front-page__block--news:before {
   content: "#noticias";
 }
@@ -816,6 +820,35 @@ a {
 
 .book__year {
   margin: 24px 0 20px;
+}
+
+.category .site__header {
+  background-color: #fff8df;
+}
+
+.category__container {
+  background-color: #e44445;
+}
+
+.category__header {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 184px;
+  justify-content: center;
+  max-width: 1184px;
+  margin: 0 auto;
+}
+
+.category__subtitle {
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.category__title {
+  font-size: 4em;
+  line-height: 1.3em;
+  text-transform: lowercase;
 }
 
 .error404 {

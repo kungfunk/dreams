@@ -1,0 +1,29 @@
+.category .site__header {
+  background-color: $color_yellow;
+}
+
+.category__container {
+  background-color: $color_red;
+}
+
+.category__header {
+  color: $color_white;
+  display: flex;
+  flex-direction: column;
+  height: 184px;
+  justify-content: center;
+  max-width: $site_mid_width;
+  margin: 0 auto;
+}
+
+.category__subtitle {
+  @extend %font-family-monospace;
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.category__title {
+  font-size: 4em;
+  line-height: 1.3em;
+  text-transform: lowercase;
+}
