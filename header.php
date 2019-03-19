@@ -35,13 +35,21 @@
                 </nav>
 		    <?php endif ?>
             <div class="header__tools">
-                <div>menu</div>
-                <div>lupa</div>
+                <label for="sidebar__control" class="header__icon">
+		            <?php include "img/menu.svg"; ?>
+                </label>
+                <a href="#search" class="header__icon">
+		            <?php include "img/search.svg"; ?>
+                </a>
             </div>
         </header>
     </div>
 
+    <input type="checkbox" class="sidebar__control" id="sidebar__control" />
     <nav class="sidebar">
+        <label for="sidebar__control" class="sidebar__close">
+		    <?php include "img/cross.svg"; ?>
+        </label>
 	    <?php wp_nav_menu(['theme_location' => 'nav-menu', 'menu_class' => 'sidebar__menu']); ?>
     </nav>
 

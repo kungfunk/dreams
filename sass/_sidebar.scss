@@ -1,6 +1,6 @@
 .sidebar {
-  display: none;
-  
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out;
   background: $color_red;
   box-sizing: border-box;
   position: fixed;
@@ -9,8 +9,28 @@
   right: 0;
   width: 50%;
   padding: 44px 48px;
+  z-index: 1;
 }
 
 .sidebar__menu {
   @extend %unstyled-list;
+}
+
+.sidebar__control {
+  display: none;
+}
+
+.sidebar__control:checked ~ .sidebar {
+  transform: translateX(0);
+}
+
+.sidebar__close {
+  cursor: pointer;
+  float: right;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-cross {
+  fill: $color_white;
 }

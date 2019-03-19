@@ -8,20 +8,33 @@
   align-self: flex-end;
   display: block;
   flex: 0 0 190px;
+}
 
-  & .logo__text {
-    fill: $color_black;
-  }
+.logo__text {
+  fill: $color_black;
+}
 
-  & .logo__figure {
-    fill: $color_red;
-  }
+.logo__figure {
+  fill: $color_red;
 }
 
 .header__tools {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 20px 0;
+}
+
+.header__icon {
+  cursor: pointer;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-search,
+.icon-menu {
+  fill: $color_black;
 }
 
 .top-stories__list {
