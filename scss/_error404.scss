@@ -18,12 +18,15 @@
 
 .error404__title {
   @extend %font-family-monospace;
+  font-size: $font-size-extra-regular;
   font-style: italic;
   font-weight: $font-weight-bold;
 }
 
 .error404__text {
   color: $color_dark_pink;
+  font-size: $font-size-extra-regular;
+  line-height: $line-height-big;
   max-width: 530px;
 }
 
@@ -33,5 +36,5 @@
 
 .error404_image {
   float: right;
-  margin-top: -110px;
+  margin-top: -190px;
 }
