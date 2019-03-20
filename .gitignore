@@ -1,4 +1,5 @@
 node_modules
+style.css
 fonts/*
 !fonts/.gitkeep
 *.css.map
