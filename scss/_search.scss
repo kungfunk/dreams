@@ -1,0 +1,12 @@
+.search,
+.search__control {
+  display: none;
+}
+
+.search__control:checked ~ .header .top-stories {
+  display: none;
+}
+
+.search__control:checked ~ .search {
+  display: block;
+}

@@ -19,6 +19,8 @@
 .footer__menu-links {
   @extend %font-family-sans-serif;
   @extend %unstyled-list;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
 }
 
 .footer__logo {

@@ -13,7 +13,10 @@
 }
 
 .sidebar__menu {
+  @extend %font-family-sans-serif;
   @extend %unstyled-list;
+  font-size: $font-size-large;
+  color: $color_white;
 }
 
 .sidebar__control {

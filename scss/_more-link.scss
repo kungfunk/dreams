@@ -6,5 +6,6 @@
 .more-link > a {
   @extend %font-family-monospace;
   color: $color_red;
+  font-size: $font-size-regular;
   font-weight: $font-weight-bold;
 }

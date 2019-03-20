@@ -11,6 +11,8 @@
 
 <body <?php body_class('site'); ?>>
     <div class="site__header">
+        <input type="checkbox" class="search__control" id="search__control" />
+
         <header class="header">
             <a href="<?php echo get_home_url(); ?>" class="header__logo">
 			    <?php include "img/logo.svg"; ?>
@@ -38,11 +40,16 @@
                 <label for="sidebar__control" class="header__icon">
 		            <?php include "img/menu.svg"; ?>
                 </label>
-                <a href="#search" class="header__icon">
+                <label for="search__control" class="header__icon">
 		            <?php include "img/search.svg"; ?>
-                </a>
+                </label>
             </div>
+
         </header>
+
+        <div class="search">
+		    <?php get_search_form(); ?>
+        </div>
     </div>
 
     <input type="checkbox" class="sidebar__control" id="sidebar__control" />

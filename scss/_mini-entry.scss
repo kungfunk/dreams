@@ -7,7 +7,6 @@
   @extend %font-family-monospace;
   color: $color_red;
   display: block;
-  font-weight: $font-weight-bold;
   text-align: right;
 }
 
@@ -33,6 +32,8 @@
 }
 
 .mini-entry__title {
+  font-size: $font-size-big;
+  line-height: $line-height-big;
   margin: 0;
 }
 

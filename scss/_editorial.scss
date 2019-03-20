@@ -19,7 +19,13 @@
   width: 40%;
 }
 
+.editorial__title {
+  font-size: $font-size-extra-large;
+  margin-top: 60px;
+}
+
 .editorial__description {
+  line-height: $line-height-regular;
   width: 80%;
 }
 
@@ -45,4 +51,9 @@
 .book__year {
   @extend %font-family-monospace;
   margin: 24px 0 20px;
+}
+
+.book__title {
+  font-size: $font-size-extra-big;
+  line-height: $line-height-extra-big;
 }

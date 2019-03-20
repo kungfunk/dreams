@@ -3,6 +3,7 @@ define('THEME_VERSION', wp_get_theme()->version);
 define('EDITORIAL_SLUG', 'editorial');
 define('PODCAST_SLUG', 'podcast');
 define('REVIEW_SLUG', 'analisis');
+define('SEARCH_URL', '/buscador/');
 
 // support stuff
 add_theme_support('automatic-feed-links');
@@ -49,10 +50,10 @@ function dreams_get_menu_items($name) {
 }
 
 // stylesheet
-function dream_style() {
+function dreams_style() {
 	wp_enqueue_style('dream_styles', get_stylesheet_uri(), null, THEME_VERSION);
 }
-add_action('wp_enqueue_scripts', 'dream_style');
+add_action('wp_enqueue_scripts', 'dreams_style');
 
 // add extra thumbnail sizes
 add_image_size('book-cover', 240, 340, true);
