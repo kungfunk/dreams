@@ -10,7 +10,7 @@
                 <?php $podcast_query = new WP_Query(['posts_per_page' => 1, 'category_name' => PODCAST_SLUG]) ?>
                 <?php if ($podcast_query->have_posts()): while ($podcast_query->have_posts()): $podcast_query->the_post(); ?>
                     <div class="mini-entry mini-entry--podcast">
-                        <div class="mini-entry__thumbnail">
+                        <div class="mini-entry__thumbnail mini-entry__thumbnail--podcast">
                             <?php the_post_thumbnail('mini-entry') ?>
                         </div>
                         <div class="mini-entry__text">

@@ -21,7 +21,11 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba($color_black, .3) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(black, .6) 0%, rgba(black, .6) 25%, transparent 50%);
+}
+
+.mini-entry__thumbnail--podcast:before {
+  background: linear-gradient(to top, rgba(yellow, .6) 0%, rgba(yellow, .6) 25%, transparent 50%);
 }
 
 .mini-entry__text {
@@ -40,6 +44,7 @@
 .mini-entry__subtitle {
   @extend %font-family-monospace;
   font-style: italic;
+  font-size: $font-size-extra-small;
   font-weight: $font-weight-regular;
   margin: 0 0 10px;
 }
