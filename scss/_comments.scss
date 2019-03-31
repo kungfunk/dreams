@@ -1,0 +1,103 @@
+.comments {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 800px;
+}
+
+.comment-reply-title {
+  display: none;
+}
+
+.comment-respond {
+  flex: 1;
+}
+
+.comments__list,
+.comments__list .children {
+  list-style: none;
+  margin: 0;
+  padding-left: 50px;
+}
+
+.comments__response {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.comments__form {
+  .form-submit {
+    text-align: right;
+    margin: 0;
+  }
+
+  .submit {
+    @extend %font-family-monospace;
+    border: 0;
+    color: $color_grey;
+    cursor: pointer;
+    font-size: $font-size-extra-small;
+    background: none;
+  }
+}
+
+.response__avatar {
+  margin-right: 16px;
+}
+
+.response__textarea {
+  border: 0;
+  border-left: 1px solid $color_grey;
+  box-sizing: border-box;
+  min-height: 80px;
+  padding: 6px 24px;
+  resize: none;
+  width: 100%;
+
+  &::placeholder {
+    color: $color_grey;
+  }
+}
+
+.comment > .children::before {
+  border-top: 4px dotted $color_red;
+  content: '';
+  display: block;
+  margin-bottom: 30px;
+}
+
+.comment__container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.comment__data {
+  flex: 1;
+}
+
+.comment__avatar {
+  margin-right: 10px;
+}
+
+.comment__author {
+  @extend %font-family-monospace;
+  font-style: normal;
+  font-weight: $font-weight-bold;
+}
+
+.comment__meta {
+  @extend %font-family-monospace;
+  color: $color_grey;
+  font-size: $font-size-tiny;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.comment__text {
+  line-height: $line-height-big;
+}
+
+.comment__reply {
+  @extend %font-family-monospace;
+  color: $color_grey;
+  font-size: $font-size-extra-small;
+}

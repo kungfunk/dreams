@@ -1,0 +1,119 @@
+.article {
+  margin: 136px 0 114px;
+}
+
+.article__header {
+  margin: 0 auto 74px;
+  max-width: $site_mid_width;
+}
+
+.article__subtitle {
+  @extend %font-family-monospace;
+  color: $color_red;
+  font-size: $font-size-regular;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.article__title {
+  font-size: $font-size-huge;
+}
+
+.article__video-container {
+  width: $site_max_width;
+  margin: 0 auto 74px;
+}
+
+.article__video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.article__video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.article__meta {
+  @extend %font-family-monospace;
+  color: $color_grey;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+
+.article__date {
+  font-size: $font-size-extra-small;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.article__tags {
+  font-weight: $font-weight-bold;
+  text-transform: lowercase;
+}
+
+.article__comments-count {
+  @extend %font-family-monospace;
+  background-color: $color_red;
+  color: $color_white;
+  font-size: $font-size-extra-small;
+  font-weight: $font-weight-bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.article__content {
+  font-size: $font-size-regular;
+  line-height: $line-height-large;
+  max-width: 780px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.author-bio {
+  display: flex;
+  margin: 0 auto 100px;
+  width: 940px;
+}
+
+.author-bio__avatar {
+  margin-right: 22px;
+}
+
+.author-bio__author {
+  flex: 1;
+  padding-top: 15px;
+}
+
+.author-bio__name {
+  @extend %font-family-monospace;
+  font-size: $font-size-big;
+  font-weight: $font-weight-bold;
+  text-transform: lowercase;
+}
+
+.author-bio__role {
+  @extend %font-family-monospace;
+  font-size: $font-size-extra-small;
+  text-transform: uppercase;
+  color: $color_grey;
+  letter-spacing: 3px;
+}
+
+.author-bio__description {
+  line-height: $line-height-big;
+  padding-top: 20px;
+  width: 470px;
+}

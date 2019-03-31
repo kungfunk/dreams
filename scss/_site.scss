@@ -22,7 +22,8 @@ a {
 .site__footer > .footer,
 .site__more-link > .more-link,
 .site__editorial > .editorial,
-.site__front-page > .front-page {
+.site__front-page > .front-page,
+.site__comments {
   max-width: $site_mid_width;
 }
 
@@ -31,7 +32,8 @@ a {
 .site__more-link > .more-link,
 .site__editorial > .editorial,
 .site__front-page > .front-page,
-.site__error {
+.site__error,
+.site__comments {
   margin: 0 auto;
 }
 
@@ -46,3 +48,13 @@ a {
 .site__more-link {
   background-color: $color_yellow;
 }
+
+.site__comments {
+  border-top: 1px solid $color_grey;
+  padding-top: 74px;
+}
+
+.single .site__header {
+  background-color: $color_yellow;
+}
+

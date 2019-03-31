@@ -18,7 +18,7 @@
 			</div>
 			<footer class="entry__footer">
 				<div class="entry__date">
-					<?php echo get_the_date('j F | H:i'); ?>
+					<?php echo get_the_date(); ?>
 				</div>
 				<div class="entry__author">
 					<span class="entry__pre-author">por</span>

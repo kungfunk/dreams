@@ -54,9 +54,11 @@
 
     <input type="checkbox" class="sidebar__control" id="sidebar__control" />
     <nav class="sidebar">
-        <label for="sidebar__control" class="sidebar__close">
-		    <?php include "img/cross.svg"; ?>
-        </label>
+        <div class="sidebar__tools">
+            <label for="sidebar__control" class="sidebar__close">
+		        <?php include "img/cross.svg"; ?>
+            </label>
+        </div>
 	    <?php wp_nav_menu(['theme_location' => 'nav-menu', 'menu_class' => 'sidebar__menu']); ?>
     </nav>
 

@@ -9,7 +9,7 @@
                 Pero tranquilo, nuestro ejercito de infinitos monos
                 con infinitas máquinas de escribir no tardará
                 mucho en redactarlo.</p>
-            <p>Mientras tanto, deberías volver a la <a class="error404__link" href="<?php home_url() ?>">portada</a>, ¿no?.</p>
+            <p>Mientras tanto, deberías volver a la <a class="error404__link" href="<?php echo esc_url(home_url()); ?>">portada</a>, ¿no?.</p>
         </div>
         <img class="error404_image" src="<?php echo get_template_directory_uri() ?>/img/slowpoke.gif" alt="slowpoke.gif" title="404 - Ops, cagada" />
     </div>

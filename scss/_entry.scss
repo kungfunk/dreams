@@ -17,9 +17,12 @@
 
 .entry__thumbnail {
   flex: 0 0 240px;
+  margin-right: 22px;
+}
+
+.entry__thumbnail > img {
   height: 240px;
   width: 240px;
-  margin-right: 22px;
 }
 
 .entry_comments-count {
