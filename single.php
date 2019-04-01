@@ -30,23 +30,25 @@
                 </div>
                 <div class="author-bio__description"><?php the_author_meta('description'); ?></div>
             </div>
-	        <?php $related_query = dreams_get_related_from_post(); ?>
+	        <?php $related_query = get_related_from_post(); ?>
             <?php if($related_query && $related_query->have_posts()): ?>
                 <ul class="related-entries">
                     <?php while($related_query->have_posts()): $related_query->the_post(); ?>
                         <li class="related-entries__item">
-                            <a class="related-entries__thumbnail" href="<? the_permalink(); ?>" title="<?php the_title(); ?>">
+                            <a class="related-entries__thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <?php the_post_thumbnail('related-entries'); ?>
                             </a>
                             <div class="related-entries__category">#<?php echo get_the_category()[0]->name; ?></div>
+                            <h4 class="related-entries__subtitle"><?php the_subtitle($post->ID); ?></h4>
                             <h3 class="related-entries__title">
-                                <a class="related-entries__link" href="<? the_permalink(); ?>">
+                                <a class="related-entries__link" href="<?php the_permalink(); ?>">
 		                            <?php the_title(); ?>
                                 </a>
                             </h3>
                         </li>
                     <?php endwhile; ?>
                 </ul>
+		        <?php wp_reset_query(); ?>
             <?php endif; ?>
         <?php endwhile; ?>
         <?php the_posts_navigation(); ?>

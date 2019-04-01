@@ -7,6 +7,7 @@ define('SEARCH_URL', '/buscador/');
 define('LOGIN_URL', '/login/');
 define('SUBTITLE_KEY', 'subtitulo');
 define('VIDEO_KEY', 'video');
+define('RELATED_KEY', 'relacionados');
 
 // support stuff
 add_theme_support('automatic-feed-links');
@@ -114,8 +115,9 @@ function dreams_load_admin_textdomain_in_front() {
 add_action('init', 'dreams_load_admin_textdomain_in_front');
 
 // custom helpers
-function the_subtitle() {
-	echo get_post_meta(get_queried_object_id(), SUBTITLE_KEY, true);
+function the_subtitle($post_id = null) {
+	$post_id = $post_id ?: get_queried_object_id();
+	echo get_post_meta($post_id, SUBTITLE_KEY, true);
 }
 
 function has_video() {
@@ -128,19 +130,32 @@ function the_video() {
 }
 
 // related helper
-function dreams_get_related_from_post() {
-	$tags = wp_get_post_terms(get_queried_object_id(), 'post_tag', ['fields' => 'ids']);
-	$args = [
-		'post__not_in'        => [get_queried_object_id()],
-		'posts_per_page'      => 3,
-		'ignore_sticky_posts' => 1,
-		'orderby'             => 'rand',
-		'tax_query' => [
-			[
-				'taxonomy' => 'post_tag',
-				'terms'    => $tags
+function get_related_from_post() {
+	$post_id = get_queried_object_id();
+	$related_string = get_post_meta($post_id, RELATED_KEY, true);
+
+	if ($related_string) {
+		$related_post_ids = explode(',', $related_string);
+		$args = [
+			'post__in' => $related_post_ids,
+			'posts_per_page' => 3,
+			'orderby' => 'rand',
+		];
+	} else {
+		$tags = wp_get_post_terms($post_id, 'post_tag', ['fields' => 'ids']);
+		$args = [
+			'post__not_in' => [$post_id],
+			'posts_per_page' => 3,
+			'ignore_sticky_posts' => 1,
+			'orderby' => 'rand',
+			'tax_query' => [
+				[
+					'taxonomy' => 'post_tag',
+					'terms' => $tags
+				]
 			]
-		]
-	];
+		];
+	}
+
 	return new WP_Query($args);
 }

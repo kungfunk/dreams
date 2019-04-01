@@ -36,20 +36,20 @@
                     </ul>
                 </nav>
 		    <?php endif ?>
+            <div class="search-bar">
+		        <?php get_search_form(); ?>
+            </div>
             <div class="header__tools">
                 <label for="sidebar__control" class="header__icon">
 		            <?php include "img/menu.svg"; ?>
                 </label>
                 <label for="search__control" class="header__icon">
-		            <?php include "img/search.svg"; ?>
+		            <span class="header__icon-search"><?php include "img/search.svg"; ?></span>
+                    <span class="header__icon-close"><?php include "img/cross.svg"; ?></span>
                 </label>
             </div>
 
         </header>
-
-        <div class="search">
-		    <?php get_search_form(); ?>
-        </div>
     </div>
 
     <input type="checkbox" class="sidebar__control" id="sidebar__control" />

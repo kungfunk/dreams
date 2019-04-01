@@ -34,9 +34,14 @@
   height: 24px;
 }
 
-.icon-search,
-.icon-menu {
+.header__tools .icon-search,
+.header__tools .icon-menu,
+.header__tools .icon-cross {
   fill: $color_black;
+}
+
+.header__icon-close {
+  display: none;
 }
 
 .top-stories {
