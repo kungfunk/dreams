@@ -25,7 +25,7 @@
                                     <button class="play audio-player__button"><?php include "img/play.svg"; ?></button>
                                     <button class="pause audio-player__button" disabled><?php include "img/pause.svg"; ?></button>
                                 </div>
-                                <div class="audio-player__bar">
+                                <div class="timeline audio-player__bar">
                                     <div class="progress audio-player__progress"></div>
                                 </div>
                             </div>
