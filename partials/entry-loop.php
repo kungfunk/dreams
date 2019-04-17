@@ -8,9 +8,9 @@
 				<?php comments_number(0,1,'%'); ?>
 			</div>
 			<header class="entry__header">
-				<h3 class="entry__subtitle"><?php the_subtitle(); ?></h3>
+				<h3 class="entry__subtitle"><?php the_subtitle(get_the_ID()); ?></h3>
 				<h2 class="entry__title">
-					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</h2>
 			</header>
 			<div class="entry__excerpt">

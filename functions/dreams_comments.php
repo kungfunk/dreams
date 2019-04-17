@@ -19,7 +19,7 @@ function dreams_comments($comment, $args, $depth) {
 						<?php echo get_comment_date(); ?>
 					</a>
 					<span class="comment__edit-link"><?php edit_comment_link('[Editar]'); ?></span>
-				</div><!-- .comment-meta -->
+				</div>
 				<div class="comment__text"><?php comment_text(); ?></div>
 				<?php if ($comment->comment_approved == '0'): ?>
 					<div class="comment__awaiting-moderation">Tu comentario aun no ha sido moderado</div>
