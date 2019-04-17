@@ -50,10 +50,11 @@
 }
 
 .mini-entry__audio {
+  box-sizing: border-box;
   position: absolute;
   bottom: 0;
   padding: 30px;
-  width: 286px;
+  width: 100%;
 }
 
 .mini-entry--podcast .mini-entry__text {

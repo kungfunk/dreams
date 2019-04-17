@@ -11,6 +11,7 @@ define('RELATED_KEY', 'relacionados');
 define('AVATAR_META_KEY', 'avatar');
 
 add_action('wp_enqueue_scripts', 'dreams_load_comments_js');
+add_action('wp_enqueue_scripts', 'dreams_load_audio_player_js');
 
 // support stuff
 add_theme_support('automatic-feed-links');
@@ -52,13 +53,19 @@ add_action('wp_ajax_nopriv_dreams_comment_submit', 'dreams_comment_submit');
 require_once get_parent_theme_file_path('/functions/dreams_comments.php');
 
 function dreams_load_comments_js() {
-	if(is_single()){
+	if (is_single()){
 		$params = [
 			'ajaxurl' => admin_url('admin-ajax.php'),
 			'ajax_nonce' => wp_create_nonce('ajax'),
 		];
 		wp_enqueue_script( 'dreams_comments_js', get_template_directory_uri() . '/js/comments.js', [], THEME_VERSION);
 		wp_localize_script('dreams_comments_js', 'ajax_object', $params);
+	}
+}
+
+function dreams_load_audio_player_js() {
+	if (is_home()) {
+		wp_enqueue_script( 'dreams_audio_player_js', get_template_directory_uri() . '/js/audio-player.js', [], THEME_VERSION);
 	}
 }
 

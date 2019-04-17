@@ -18,9 +18,18 @@
                                 <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
                             </h2>
                         </div>
-                        <audio class="mini-entry__audio" controls>
-                            <source src="http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3" type="audio/mpeg">
-                        </audio>
+                        <div class="mini-entry__audio">
+                            <div class="audio-player">
+                                <audio src="http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3" type="audio/mpeg"></audio>
+                                <div class="audio-player__panel">
+                                    <button class="play audio-player__button"><?php include "img/play.svg"; ?></button>
+                                    <button class="pause audio-player__button" disabled><?php include "img/pause.svg"; ?></button>
+                                </div>
+                                <div class="audio-player__bar">
+                                    <div class="progress audio-player__progress"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <?php endwhile; endif; ?>
                 <?php wp_reset_postdata(); ?>
