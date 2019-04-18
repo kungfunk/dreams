@@ -44,16 +44,11 @@
   display: none;
 }
 
-.top-stories {
-  margin-right: -200px;
-}
-
 .top-stories__list {
   @extend %unstyled-list;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 360px 360px 210px;
   grid-row-gap: 30px;
-  width: 1080px;
 }
 
 .top-stories__item {
@@ -82,4 +77,26 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@include breakpoint(desktop) {
+  .top-stories__list {
+    grid-template-columns: 280px 280px 210px;
+  }
+}
+
+@include breakpoint(tablet) {
+  .header {
+    padding: 24px 30px 30px;
+  }
+
+  .top-stories {
+    display: none;
+  }
+}
+
+@include breakpoint(mobile) {
+  .header__logo {
+    flex: 0 0 140px;
+  }
 }

@@ -57,3 +57,9 @@
   font-size: $font-size-extra-big;
   line-height: $line-height-extra-big;
 }
+
+@include breakpoint(tablet) {
+  .editorial {
+    display: none;
+  }
+}

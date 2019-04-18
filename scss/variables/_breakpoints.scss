@@ -1,12 +1,27 @@
-$breakpoint-desktop: 1440px;
-$breakpoint-mobile: 520px;
+$breakpoint-desktop: 1340px;
+$breakpoint-big-tablet: 1220px;
+$breakpoint-tablet: 1180px;
+$breakpoint-big-mobile: 840px;
+$breakpoint-mobile: 620px;
+$breakpoint-small-mobile: 400px;
 
 @mixin breakpoint($point) {
   @if $point == desktop {
-    @media (min-width: $breakpoint-desktop) { @content; }
+    @media (max-width: $breakpoint-desktop) { @content; }
+  }
+  @else if $point == big-tablet {
+    @media (max-width: $breakpoint-big-tablet)  { @content; }
+  }
+  @else if $point == tablet {
+    @media (max-width: $breakpoint-tablet)  { @content; }
+  }
+  @else if $point == big-mobile {
+    @media (max-width: $breakpoint-big-mobile)  { @content; }
   }
   @else if $point == mobile {
     @media (max-width: $breakpoint-mobile)  { @content; }
-
+  }
+  @else if $point == small-mobile {
+    @media (max-width: $breakpoint-small-mobile)  { @content; }
   }
 }

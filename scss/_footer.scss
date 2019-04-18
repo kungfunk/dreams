@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 60px 0 70px;
   color: $color_white;
+  min-height: 310px;
 }
 
 .footer_left {
@@ -41,4 +42,10 @@
   @extend %font-family-monospace;
   align-self: flex-end;
   font-weight: $font-weight-bold;
+}
+
+@include breakpoint(tablet) {
+  .footer__menu {
+    display: none;
+  }
 }

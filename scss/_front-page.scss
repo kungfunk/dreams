@@ -37,3 +37,13 @@
     content: '#análisis';
   }
 }
+
+@include breakpoint(big-tablet) {
+  .front-page__right {
+    display: none;
+  }
+
+  .front-page__left {
+    flex: 1;
+  }
+}
