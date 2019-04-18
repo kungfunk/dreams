@@ -5,6 +5,7 @@ define('PODCAST_SLUG', 'podcast');
 define('REVIEW_SLUG', 'analisis');
 define('SEARCH_URL', '/buscador/');
 define('LOGIN_URL', '/login/');
+define('REGISTER_URL', '/registro/');
 define('SUBTITLE_KEY', 'subtitulo');
 define('VIDEO_KEY', 'video');
 define('RELATED_KEY', 'relacionados');
@@ -30,9 +31,8 @@ add_action('init', 'dreams_load_admin_textdomain_in_front');
 
 // login stuff
 add_action('init','dreams_redirect_login_page');
-add_action('wp_login_failed', 'dreams_custom_login_failed');
+add_filter('login_redirect', 'dreams_after_login_redirect', 10, 3);
 add_action('wp_logout','dreams_logout_redirect');
-add_filter('authenticate', 'dreams_verify_user_pass', 1, 3);
 
 // add extra thumbnail sizes
 add_image_size('book-cover', 240, 340, true);
@@ -182,18 +182,15 @@ function dreams_redirect_login_page() {
 	}
 }
 
-function dreams_custom_login_failed() {
+function dreams_after_login_redirect($redirect_to, $requested_redirect_to, $user) {
 	$login_page  = home_url(LOGIN_URL);
-	wp_redirect($login_page . '?login=failed');
-	exit;
-}
-
-function dreams_verify_user_pass($user, $username, $password) {
-	$login_page  = home_url(LOGIN_URL);
-	if($username == "" || $password == "") {
-		wp_redirect($login_page . "?login=empty");
+	if (is_wp_error($user)) {
+		$error = array_keys($user->errors)[0];
+		wp_redirect($login_page . '?login=failed&reason=' . $error);
 		exit;
 	}
+
+	return $redirect_to;
 }
 
 function dreams_logout_redirect() {

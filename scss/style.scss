@@ -16,6 +16,7 @@ Tags: anaitgames
 @import "variables/colors";
 @import "variables/layout";
 @import "variables/typography";
+@import "variables/breakpoints";
 
 @import "mixins/font-family";
 @import "mixins/block-title";
@@ -27,6 +28,7 @@ Tags: anaitgames
 @import "search";
 @import "footer";
 @import "comments";
+@import "single-form";
 
 @import "article";
 @import "front-page";

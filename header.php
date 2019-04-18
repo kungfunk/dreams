@@ -48,7 +48,6 @@
                     <span class="header__icon-close"><?php include "img/cross.svg"; ?></span>
                 </label>
             </div>
-
         </header>
     </div>
 
@@ -60,5 +59,23 @@
             </label>
         </div>
 	    <?php wp_nav_menu(['theme_location' => 'nav-menu', 'menu_class' => 'sidebar__menu']); ?>
+	    <?php if(is_user_logged_in()): ?>
+            <div class="sidebar__user">
+                <div class="mini-profile">
+	                <?php $user = wp_get_current_user(); echo get_avatar($user->ID, 54); ?>
+                    <div>
+                        <div class="mini-profile__name"><?php echo $user->display_name ?></div>
+                        <ul class="mini-profile__options">
+                            <li class="mini-profile__option">
+                                <a href="<?php echo esc_url(home_url()); ?>/perfil">Editar perfil</a>
+                            </li>
+                            <li class="mini-profile__option">
+                                <a href="<?php echo esc_url(wp_logout_url()); ?>">Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </nav>
 

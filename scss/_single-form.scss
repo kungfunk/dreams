@@ -1,0 +1,123 @@
+.single-form-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $color_red;
+}
+
+.single-form {
+  @extend %font-family-monospace;
+  background-color: $color_white;
+  border-radius: 8px;
+  box-shadow: 3px 9px 0 rgba($color_black, .4);
+  width: 300px;
+  margin: 0 auto;
+  padding: 80px 50px 50px;
+  position: relative;
+}
+
+.single-form__logo {
+  background-color: $color_white;
+  border-radius: 50%;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+
+  svg {
+    width: 80px;
+    height: 80px;
+    fill: $color_red;
+  }
+}
+
+.single-form__input {
+  box-sizing: border-box;
+  border: 1px solid $color_light_grey;
+  border-radius: 3px;
+  background-color: $color_white;
+  font-size: $font-size-small;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+
+  &:focus {
+    background-color: $color_yellow;
+  }
+}
+
+.single-form__remember {
+  display: block;
+  font-size: $font-size-extra-small;
+  margin-bottom: 20px;
+}
+
+.single-form__button {
+  background-color: $color_red;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $color_white;
+  cursor: pointer;
+  display: block;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.single-form__register-text {
+  @extend %font-family-sans-serif;
+  font-size: $font-size-extra-small;
+  color: $color_grey;
+  text-align: center;
+  margin: 20px 0 0;
+}
+
+.single-form__register-link {
+  color: $color_red;
+}
+
+.single-form__info {
+  @extend %font-family-sans-serif;
+  font-size: $font-size-extra-small;
+  font-style: italic;
+  color: $color_grey;
+}
+
+.single-form__error-msg,
+.single-form__success-msg,
+.single-form__info-msg {
+  font-size: $font-size-extra-small;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: 1px solid $color_red;
+  color: $color_red;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.single-form__success-msg {
+  border: 1px solid $color_green;
+  color: $color_green;
+}
+
+.single-form__info-msg {
+  border: 1px solid $color_blue;
+  color: $color_blue;
+}
+
+@include breakpoint(mobile) {
+  .single-form-page {
+    background-color: $color_white;
+  }
+
+  .single-form {
+    box-shadow: none;
+  }
+}

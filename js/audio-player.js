@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const players = document.querySelectorAll('.audio-player');
-    
+
     players.forEach(player => {
         const source = player.querySelector('audio');
         const button_play = player.querySelector('.play');

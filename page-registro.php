@@ -1,66 +1,50 @@
 <?php
-if (get_option('users_can_register')) {
-	if ( isset( $_POST['submit'] ) ) {
-		global $reg_errors;
-		$reg_errors = new WP_Error;
-
-		$user  = sanitize_text_field( $_POST['user'] );
-		$email = sanitize_email( $_POST['email'] );
-
-		if ( empty( $user ) ) {
-			$reg_errors->add( "empty-user", "El campo nombre es obligatorio" );
-		}
-
-		if ( username_exists( $user ) ) {
-			$reg_errors->add( "duplicate-user", "El nombre de usuario ya existe en nuestra base de datos" );
-		}
-
-		if ( empty( $email ) ) {
-			$reg_errors->add( "empty-email", "El campo e-mail es obligatorio" );
-		}
-
-		if ( ! is_email( $email ) ) {
-			$reg_errors->add( "invalid-email", "El e-mail no tiene un formato válido" );
-		}
-
-		if ( email_exists( $email ) ) {
-			$reg_errors->add( "duplicate-email", "El email indicado ya esta en uso" );
-		}
-
-		if ( is_wp_error( $reg_errors ) ) {
-			if ( count( $reg_errors->get_error_messages() ) > 0 ) {
-				foreach ( $reg_errors->get_error_messages() as $error ) {
-					echo $error . "<br />";
-				}
-			}
-		}
-
-		if ( count( $reg_errors->get_error_messages() ) == 0 ) {
-			$password = wp_generate_password();
-
-			$userdata = [
-				'user_login' => $user,
-				'user_email' => $email,
-				'user_pass'  => $password,
-			];
-
-			$user_id = wp_insert_user( $userdata );
-
-			if ( ! is_wp_error( $user_id ) ) {
-				wp_new_user_notification( $user_id, null, 'user' );
-			}
-		}
-	} else {
-		?>
-		<form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>">
-			<input type="text" name="user" value="<?php echo isset($_POST['user']) ? $_POST['user'] : null;?>" placeholder="Usuario" required aria-required="true" />
-			<input type="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : null; ?>" placeholder="Email" required aria-required="true" />
-			<input type="submit" id="submit" name="submit" value="Enviar" />
-		</form>
-		<?php
-	}
-} else {
-	?>
-	<p>Registro desactivado en estos momentos.</p>
-	<?php
+if (is_user_logged_in() || !get_option('users_can_register')) {
+	wp_redirect(home_url());
 }
+
+if (!empty($_POST)) {
+	$errors = register_new_user($_POST['user'], $_POST['email']);
+    if (!is_wp_error($errors)) {
+	    wp_redirect(home_url(LOGIN_URL . '?referer=' . $_POST['email']));
+    }
+}
+?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<?php bloginfo('description'); ?>" />
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class('single-form-page'); ?>>
+<div class="single-form">
+    <a href="<?php echo get_home_url(); ?>" class="single-form__logo">
+		<?php include "img/brand.svg"; ?>
+    </a>
+    <form class="single-form__form" action="<?php echo esc_url(get_permalink()); ?>" method="post">
+		<?php if (isset($errors) && $errors->has_errors()): $messages = $errors->get_error_messages() ?>
+            <div class="single-form__error-msg">
+                <?php foreach ($messages as $message): ?>
+                    <p><?php echo $message ?></p>
+                <?php endforeach; ?>
+            </div>
+		<?php endif; ?>
+        <input placeholder="Usuario" type="text" name="user" class="single-form__input" value="" size="20" required />
+        <input placeholder="Email" type="text" name="email" class="single-form__input" value="" size="50" required />
+        <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url()); ?>" />
+        <button class="single-form__button" type="submit">Registrarse</button>
+        <p class="single-form__info">Te enviaremos una contraseña generada a tu correo electronico. No te preocupes, puedes cambiarla mas tarde desde tu perfil.</p>
+        <p class="single-form__register-text">
+            ¿Ya tienes cuenta? <a class="single-form__register-link" href="<?php echo home_url(LOGIN_URL); ?>">¡Entra!</a>
+        </p>
+    </form>
+</div>
+
+<?php wp_footer(); ?>
+</body>
+</html>
