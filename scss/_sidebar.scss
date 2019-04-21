@@ -83,3 +83,10 @@
 .mini-profile__option {
   margin-bottom: 3px;
 }
+
+@include breakpoint(mobile) {
+  .sidebar {
+    right: -100%;
+    width: 100%;
+  }
+}

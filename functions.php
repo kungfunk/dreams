@@ -1,4 +1,6 @@
 <?php
+require_once get_parent_theme_file_path('/functions/dreams_comments.php');
+
 define('THEME_VERSION', wp_get_theme()->version);
 define('EDITORIAL_SLUG', 'editorial');
 define('PODCAST_SLUG', 'podcast');
@@ -6,6 +8,7 @@ define('REVIEW_SLUG', 'analisis');
 define('SEARCH_URL', '/buscador/');
 define('LOGIN_URL', '/login/');
 define('REGISTER_URL', '/registro/');
+define('LOST_PASSWORD', '/recuperar-password/');
 define('SUBTITLE_KEY', 'subtitulo');
 define('VIDEO_KEY', 'video');
 define('RELATED_KEY', 'relacionados');
@@ -33,6 +36,7 @@ add_action('init', 'dreams_load_admin_textdomain_in_front');
 add_action('init','dreams_redirect_login_page');
 add_filter('login_redirect', 'dreams_after_login_redirect', 10, 3);
 add_action('wp_logout','dreams_logout_redirect');
+add_action('login_form_lostpassword', 'dreams_lostpassword_page');
 
 // add extra thumbnail sizes
 add_image_size('book-cover', 240, 340, true);
@@ -50,7 +54,6 @@ add_action('admin_menu', 'dreams_admin_menu');
 add_action('wp_ajax_dreams_comment_submit', 'dreams_comment_submit');
 add_action('wp_ajax_nopriv_dreams_comment_submit', 'dreams_comment_submit');
 
-require_once get_parent_theme_file_path('/functions/dreams_comments.php');
 
 function dreams_load_comments_js() {
 	if (is_single()){
@@ -173,20 +176,16 @@ function dreams_style() {
 
 // custom login
 function dreams_redirect_login_page() {
-	$login_page  = home_url(LOGIN_URL);
-	$page_viewed = basename($_SERVER['REQUEST_URI']);
-
-	if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
-		wp_redirect($login_page);
+	if(basename($_SERVER['REQUEST_URI']) == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' && get_page_by_path(LOGIN_URL)) {
+		wp_redirect(home_url(LOGIN_URL));
 		exit;
 	}
 }
 
 function dreams_after_login_redirect($redirect_to, $requested_redirect_to, $user) {
-	$login_page  = home_url(LOGIN_URL);
-	if (is_wp_error($user)) {
+	if (is_wp_error($user) && get_page_by_path(LOGIN_URL)) {
 		$error = array_keys($user->errors)[0];
-		wp_redirect($login_page . '?login=failed&reason=' . $error);
+		wp_redirect(home_url(LOGIN_URL) . '?login=failed&reason=' . $error);
 		exit;
 	}
 
@@ -194,9 +193,17 @@ function dreams_after_login_redirect($redirect_to, $requested_redirect_to, $user
 }
 
 function dreams_logout_redirect() {
-	$login_page  = home_url(LOGIN_URL);
-	wp_redirect($login_page . "?login=false");
-	exit;
+	if (get_page_by_path(LOGIN_URL)) {
+		wp_redirect(home_url(LOGIN_URL) . "?login=false");
+		exit;
+	}
+}
+
+function dreams_lostpassword_page() {
+	if (get_page_by_path(LOST_PASSWORD)) {
+		wp_redirect(home_url(LOST_PASSWORD));
+		exit;
+	}
 }
 
 // needed to translate roles in FE

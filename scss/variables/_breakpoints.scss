@@ -24,4 +24,7 @@ $breakpoint-small-mobile: 400px;
   @else if $point == small-mobile {
     @media (max-width: $breakpoint-small-mobile)  { @content; }
   }
+  @else {
+    @media (max-width: $point)  { @content; }
+  }
 }

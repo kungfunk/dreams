@@ -52,8 +52,11 @@ a {
 }
 
 .site__comments {
-  border-top: 1px solid $color_grey;
-  padding-top: 74px;
+  &:before {
+    border-top: 1px solid $color_grey;
+    display: block;
+    content: '';
+  }
 }
 
 .single .site__header {

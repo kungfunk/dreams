@@ -1,7 +1,6 @@
 .comments {
-  margin: 0 auto 140px;
-  padding: 0 20px;
-  width: 800px;
+  margin: 74px auto 140px;
+  max-width: 800px;
 }
 
 .comment-reply-title {
@@ -25,6 +24,8 @@
 }
 
 .comments__form {
+  border-left: 1px solid $color_grey;
+
   .form-submit {
     text-align: right;
     margin: 0;
@@ -47,7 +48,6 @@
 .response__textarea {
   @extend %font-family-serif;
   border: 0;
-  border-left: 1px solid $color_grey;
   box-sizing: border-box;
   font-size: $font-size-small;
   min-height: 80px;
@@ -57,6 +57,37 @@
 
   &::placeholder {
     color: $color_grey;
+  }
+}
+
+.response__actions {
+  margin-bottom: -18px;
+  padding-left: 24px;
+}
+
+.response__action {
+  @extend %font-family-monospace;
+  border: 0;
+  background-color: transparent;
+  padding: 0 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: $color_grey;
+
+  &--strong {
+    font-weight: $font-weight-bold;
+  }
+
+  &--italic {
+    font-style: italic;
+  }
+
+  &--strike {
+    text-decoration: line-through;
+  }
+
+  &--link {
+    font-size: $font-size-extra-small;
   }
 }
 
@@ -143,4 +174,11 @@
 
 .comment__reply--clicked {
   display: none;
+}
+
+
+@include breakpoint(mobile) {
+  .comments__list {
+    padding-left: 0;
+  }
 }

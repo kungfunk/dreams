@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const comment_forms = document.querySelectorAll('.comments__form');
     const respond_links = document.querySelectorAll('.comment-reply-link');
     const original_form = document.querySelector('#commentform');
+    const format_buttons = document.querySelectorAll('.format-button');
 
     function submitListener(event) {
         event.preventDefault();
@@ -90,6 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
         cloned_form.querySelector('textarea').focus();
     }
 
+    function formatTextarea(event) {
+        event.preventDefault();
+
+        const position = this.dataset.cursorPosition;
+        let tag = this.dataset.html;
+        const textarea = this.parentElement.parentElement.querySelector('textarea');
+
+        textarea.focus();
+
+        const selected_text = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+        if (selected_text) {
+            tag = tag.substr(0, position) + selected_text + tag.substr(position);
+        }
+
+        textarea.setRangeText(tag, textarea.selectionStart, textarea.selectionEnd, 'end');
+    }
+
     comment_forms.forEach(form => form.addEventListener('submit', submitListener));
     respond_links.forEach(link => link.addEventListener('click', addCommentForm));
+    format_buttons.forEach(button => button.addEventListener('click', formatTextarea));
 });

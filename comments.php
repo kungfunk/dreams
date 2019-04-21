@@ -13,7 +13,15 @@
                 <?php comment_form([
                     'label_submit' => '+ Publicar',
                     'class_form' => 'comments__form',
-                    'comment_field' => '<textarea id="comment" name="comment" class="response__textarea" aria-required="true" placeholder="Escribe tu comentario"></textarea>',
+                    'comment_field' => '
+                        <textarea id="comment" name="comment" class="response__textarea" aria-required="true" placeholder="Escribe tu comentario"></textarea>
+                        <div class="response__actions">
+                            <button class="response__action response__action--strong format-button" data-cursor-position="3" data-html="<b></b>">B</button>
+                            <button class="response__action response__action--italic format-button" data-cursor-position="3" data-html="<i></i>">I</button>
+                            <button class="response__action response__action--strike format-button" data-cursor-position="8" data-html="<strike></strike>">S</button>
+                            <button class="response__action response__action--link format-button" data-cursor-position="9" data-html="<a href=></a>">🔗</button>
+                            <button class="response__action format-button" data-cursor-position="12" data-html="<blockquote></blockquote>">“”</button>
+                        </div>',
                     'logged_in_as' => '',
                 ]); ?>
             </div>

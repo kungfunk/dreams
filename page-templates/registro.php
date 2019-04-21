@@ -1,4 +1,8 @@
 <?php
+/**
+ * Template Name: Registro
+ */
+
 if (is_user_logged_in() || !get_option('users_can_register')) {
 	wp_redirect(home_url());
 }
@@ -24,7 +28,7 @@ if (!empty($_POST)) {
 <body <?php body_class('single-form-page'); ?>>
 <div class="single-form">
     <a href="<?php echo get_home_url(); ?>" class="single-form__logo">
-		<?php include "img/brand.svg"; ?>
+	    <?php include get_template_directory() . '/img/brand.svg'; ?>
     </a>
     <form class="single-form__form" action="<?php echo esc_url(get_permalink()); ?>" method="post">
 		<?php if (isset($errors) && $errors->has_errors()): $messages = $errors->get_error_messages() ?>

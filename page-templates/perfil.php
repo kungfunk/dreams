@@ -1,5 +1,12 @@
-<?php if(!is_user_logged_in()) { wp_redirect(wp_login_url()); } ?>
+<?php
+/**
+ * Template Name: Perfil
+ */
 
+if (is_user_logged_in()) {
+    wp_redirect(home_url());
+}
+?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -13,13 +20,6 @@
 
 <body>
 <?php
-/**
- * Template Name: User Profile
- *
- * Allow users to update their profiles from Frontend.
- *
- */
-
 /* Get user info. */
 global $current_user, $wp_roles;
 //get_currentuserinfo(); //deprecated since 3.1

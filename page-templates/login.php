@@ -1,29 +1,33 @@
 <?php
-    if (is_user_logged_in()) {
-	    wp_redirect(home_url());
-    }
+/**
+ * Template Name: Login
+ */
 
-    if (!empty($_GET) && isset($_GET['login']) && $_GET['login'] == 'failed') {
-        switch ($_GET['reason']) {
-            case 'invalid_username':
-                $error = 'Usuario o email incorrecto';
-                break;
-	        case 'incorrect_password':
-		        $error = 'Contraseña invalida';
-		        break;
-            default:
-	            $error = 'Error en el login';
-                break;
-        }
-    }
+if (is_user_logged_in()) {
+    wp_redirect(home_url());
+}
 
-    if (!empty($_GET) && isset($_GET['referer'])) {
-        $referer = $_GET['referer'];
+if (!empty($_GET) && isset($_GET['login']) && $_GET['login'] == 'failed') {
+    switch ($_GET['reason']) {
+        case 'invalid_username':
+            $error = 'Usuario o email incorrecto';
+            break;
+        case 'incorrect_password':
+            $error = 'Contraseña invalida';
+            break;
+        default:
+            $error = 'Error en el login';
+            break;
     }
+}
 
-    if (!empty($_GET) && isset($_GET['login']) && $_GET['login'] == 'false') {
-        $just_logged_out = true;
-    }
+if (!empty($_GET) && isset($_GET['referer'])) {
+    $referer = $_GET['referer'];
+}
+
+if (!empty($_GET) && isset($_GET['login']) && $_GET['login'] == 'false') {
+    $just_logged_out = true;
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -39,7 +43,7 @@
 <body <?php body_class('single-form-page'); ?>>
 	<div class="single-form">
 		<a href="<?php echo get_home_url(); ?>" class="single-form__logo">
-			<?php include "img/brand.svg"; ?>
+			<?php include get_template_directory() . '/img/brand.svg'; ?>
 		</a>
         <form class="single-form__form" action="<?php echo esc_url(site_url('wp-login.php', 'login_post')); ?>" method="post">
             <?php if (isset($error) && $error): ?>
@@ -60,6 +64,9 @@
             <button class="single-form__button" type="submit">Entrar</button>
             <p class="single-form__register-text">
                 ¿No tienes cuenta? <a class="single-form__register-link" href="<?php echo home_url(REGISTER_URL); ?>">¡Registrate!</a>
+            </p>
+            <p class="single-form__register-text">
+                ¿Olvidaste tu contraseña? <a class="single-form__register-link" href="<?php echo wp_lostpassword_url(home_url(LOGIN_URL)); ?> ">Recuperala</a>.
             </p>
         </form>
 	</div>
