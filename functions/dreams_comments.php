@@ -1,7 +1,7 @@
 <?php
 function dreams_comments($comment, $args, $depth) {
 ?>
-	<li <?php comment_class(empty( $args['has_children']) ? '' : 'parent'); ?> id="comment-<?php comment_ID() ?>">
+	<li <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?> id="comment-<?php comment_ID() ?>">
 
 	<?php if ($comment->comment_type === 'pingback' || $comment->comment_type === 'trackback'): ?>
 		<div class="comment__pingback-entry">
@@ -10,7 +10,7 @@ function dreams_comments($comment, $args, $depth) {
 	<?php else: ?>
 		<div class="comment__container">
 			<div class="comment__avatar">
-				<?php echo get_avatar($comment, $args['avatar_size']); ?>
+				<?php echo get_avatar($comment->user_id, $args['avatar_size']); ?>
 			</div>
 			<div class="comment__data">
 				<cite class="comment__author"><?php echo get_comment_author_link() ?></cite>

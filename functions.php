@@ -1,6 +1,4 @@
 <?php
-require_once get_parent_theme_file_path('/functions/dreams_comments.php');
-
 define('THEME_VERSION', wp_get_theme()->version);
 define('EDITORIAL_SLUG', 'editorial');
 define('PODCAST_SLUG', 'podcast');
@@ -13,9 +11,11 @@ define('SUBTITLE_KEY', 'subtitulo');
 define('VIDEO_KEY', 'video');
 define('RELATED_KEY', 'relacionados');
 define('AVATAR_META_KEY', 'avatar');
+define('AVATAR_FOLDER', '/avatar/');
 
 add_action('wp_enqueue_scripts', 'dreams_load_comments_js');
 add_action('wp_enqueue_scripts', 'dreams_load_audio_player_js');
+add_action('wp_enqueue_scripts', 'dreams_load_profile_js');
 
 // support stuff
 add_theme_support('automatic-feed-links');
@@ -54,6 +54,7 @@ add_action('admin_menu', 'dreams_admin_menu');
 add_action('wp_ajax_dreams_comment_submit', 'dreams_comment_submit');
 add_action('wp_ajax_nopriv_dreams_comment_submit', 'dreams_comment_submit');
 
+require_once get_parent_theme_file_path('/functions/dreams_comments.php');
 
 function dreams_load_comments_js() {
 	if (is_single()){
@@ -69,6 +70,12 @@ function dreams_load_comments_js() {
 function dreams_load_audio_player_js() {
 	if (is_home()) {
 		wp_enqueue_script( 'dreams_audio_player_js', get_template_directory_uri() . '/js/audio-player.js', [], THEME_VERSION);
+	}
+}
+
+function dreams_load_profile_js() {
+	if (is_page_template('page-templates/perfil.php')) {
+		wp_enqueue_script( 'dreams_profile_js', get_template_directory_uri() . '/js/profile.js', [], THEME_VERSION);
 	}
 }
 
@@ -229,7 +236,8 @@ function dreams_get_avatar($avatar, $id_or_email, $size, $default, $alt) {
 
 	$saved = get_user_meta($id_or_email, AVATAR_META_KEY, true);
 	if(0 < absint($saved)) {
-		return wp_get_attachment_image($saved, [$size, $size], false, ['alt' => $alt]);
+		$image_path = wp_upload_dir()['baseurl'] . AVATAR_FOLDER . $saved;
+		return "<img alt='{$alt}' src='{$image_path}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
 	}
 
 	return $avatar;

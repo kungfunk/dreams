@@ -70,6 +70,9 @@
                                 <a href="<?php echo esc_url(home_url()); ?>/perfil">Editar perfil</a>
                             </li>
                             <li class="mini-profile__option">
+                                <a href="<?php echo esc_url(home_url()); ?>/cambiar-password">Cambiar contraseña</a>
+                            </li>
+                            <li class="mini-profile__option">
                                 <a href="<?php echo esc_url(wp_logout_url()); ?>">Cerrar sesión</a>
                             </li>
                         </ul>

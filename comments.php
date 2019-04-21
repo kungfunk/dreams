@@ -8,7 +8,7 @@
             <div class="comments__response">
                 <div class="response__avatar">
                     <?php $current_user = wp_get_current_user(); ?>
-                    <img width="58" height="58" class="avatar" src="<?php echo esc_url(get_avatar_url($current_user->ID, ['size' => 58])); ?>" />
+	                <?php echo get_avatar($current_user->ID, 58); ?>
                 </div>
                 <?php comment_form([
                     'label_submit' => '+ Publicar',
