@@ -235,7 +235,7 @@ function dreams_get_avatar($avatar, $id_or_email, $size, $default, $alt) {
 	}
 
 	$saved = get_user_meta($id_or_email, AVATAR_META_KEY, true);
-	if(0 < absint($saved)) {
+	if(!empty($saved)) {
 		$image_path = wp_upload_dir()['baseurl'] . AVATAR_FOLDER . $saved;
 		return "<img alt='{$alt}' src='{$image_path}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
 	}
