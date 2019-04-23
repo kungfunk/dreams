@@ -22,7 +22,7 @@
 }
 
 .article__video-container {
-  width: $site_max_width;
+  max-width: $site_max_width;
   margin: 0 auto 74px;
 }
 

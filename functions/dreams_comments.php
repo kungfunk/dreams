@@ -24,13 +24,15 @@ function dreams_comments($comment, $args, $depth) {
 				<?php if ($comment->comment_approved == '0'): ?>
 					<div class="comment__awaiting-moderation">Tu comentario aun no ha sido moderado</div>
 				<?php endif; ?>
-				<div class="comment__reply">
-					<?php comment_reply_link(array_merge($args, ['depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '→ Responder'])); ?>
-					<?php $num_replies = get_comments(['parent' => $comment->comment_ID, 'count' => true]) ?>
-					<?php if ($num_replies > 0): ?>
-						<span class="comment_replies-number">(<?php echo $num_replies ?> respuestas)</span>
-					<?php endif ?>
-				</div>
+                <?php if (is_user_logged_in()): ?>
+                    <div class="comment__reply">
+                        <?php comment_reply_link(array_merge($args, ['depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '→ Responder'])); ?>
+                        <?php $num_replies = get_comments(['parent' => $comment->comment_ID, 'count' => true]) ?>
+                        <?php if ($num_replies > 0): ?>
+                            <span class="comment_replies-number">(<?php echo $num_replies ?> respuestas)</span>
+                        <?php endif ?>
+                    </div>
+                <?php endif; ?>
 			</div>
 		</div>
 	<?php endif; ?>
