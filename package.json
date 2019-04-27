@@ -7,7 +7,8 @@
     "prebuild:css": "node-sass scss/style.scss style.css",
     "build:css": "postcss --no-map --use autoprefixer -b 'last 3 versions' --use cssnano --output style.css style.css",
     "build": "npm run build:css",
-    "build:watch": "watch 'npm run build' scss/"
+    "build:watch": "watch 'npm run build' scss/",
+    "start": "watch 'npm run build' scss/"
   },
   "repository": {
     "type": "git",

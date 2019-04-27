@@ -20,7 +20,7 @@
                         </div>
                         <div class="mini-entry__audio">
                             <div class="audio-player">
-                                <audio src="http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3" type="audio/mpeg"></audio>
+                                <?php the_podcast() ?>
                                 <div class="audio-player__panel">
                                     <button class="play audio-player__button"><?php include "img/play.svg"; ?></button>
                                     <button class="pause audio-player__button" disabled><?php include "img/pause.svg"; ?></button>

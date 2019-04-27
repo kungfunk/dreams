@@ -9,6 +9,7 @@ define('REGISTER_URL', '/registro/');
 define('LOST_PASSWORD', '/recuperar-password/');
 define('SUBTITLE_KEY', 'subtitulo');
 define('VIDEO_KEY', 'video');
+define('PODCAST_KEY', 'podcast');
 define('RELATED_KEY', 'relacionados');
 define('AVATAR_META_KEY', 'avatar');
 define('AVATAR_FOLDER', '/avatar/');
@@ -244,9 +245,8 @@ function dreams_get_avatar($avatar, $id_or_email, $size, $default, $alt) {
 }
 
 // custom helpers
-function the_subtitle($post_id = null) {
-	$post_id = $post_id ?: get_queried_object_id();
-	echo get_post_meta($post_id, SUBTITLE_KEY, true);
+function the_subtitle() {
+	echo get_post_meta(get_the_ID(), SUBTITLE_KEY, true);
 }
 
 function has_video() {
@@ -256,6 +256,11 @@ function has_video() {
 function the_video() {
 	$video_id = get_post_meta(get_queried_object_id(), VIDEO_KEY, true);
 	echo '<iframe src="https://www.youtube.com/embed/'.$video_id.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+}
+
+function the_podcast() {
+	$podcast_url = get_post_meta(get_the_ID(), PODCAST_KEY, true);
+	echo '<audio src="' . $podcast_url . '" type="audio/mpeg"></audio>';
 }
 
 function get_related_from_post() {

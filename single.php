@@ -40,7 +40,7 @@
 					                <?php the_post_thumbnail('related-entries'); ?>
                                 </a>
                                 <div class="related-entries__category">#<?php echo get_the_category()[0]->name; ?></div>
-                                <h4 class="related-entries__subtitle"><?php the_subtitle($post->ID); ?></h4>
+                                <h4 class="related-entries__subtitle"><?php the_subtitle(); ?></h4>
                                 <h3 class="related-entries__title">
                                     <a class="related-entries__link" href="<?php the_permalink(); ?>">
 						                <?php the_title(); ?>
